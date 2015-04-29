@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="US-ASCII">
+<title>Insert title here</title>
+</head>
+<body>
+	<md-list id="element1">aqui</md-list>
+	<div id="element2">alla</div>
+	<script src="src/Paperkit.js"></script>
+	<script src="src/MDLost.js"></script>
+	<script src="src/MDList.js"></script>
+	<script>
+		window.addEventListener('load', function(e) {
+		  // Inits elements
+		  Paperkit.initElements(document);
+		
+		  // Now that all the md-* elements are injected, we can
+		  // access md-list object and it's functions
+		  var list = document.getElementById("element1");
+		  list.setVara("hello");
+		  list.writeHTML();
+		  
+		  // And of course we can access 
+		  // subobject inside md-list object
+		  document.getElementById("element2").innerHTML = list.getMDLostObject().getVara();
+		});
+	</script>
+</body>
+</html>
